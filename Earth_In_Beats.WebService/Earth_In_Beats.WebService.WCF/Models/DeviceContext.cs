@@ -9,7 +9,7 @@ namespace Earth_In_Beats.WebService.WCF.Models
     [DataContract]
     public class DeviceContextData
     {
-        [DataMember()]
+        [DataMember]
         public Guid Id { get; set; }
 
         [DataMember]

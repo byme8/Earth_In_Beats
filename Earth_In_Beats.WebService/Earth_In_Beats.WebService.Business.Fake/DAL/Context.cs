@@ -1,4 +1,4 @@
-﻿using Earth_In_Beats.WebService.Contracts.Models;
+﻿using Earth_In_Beats.WebService.Business.Contracts.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{01D3E8DC-D1FF-455A-B2DB-7F929FEDCD32}</ProjectGuid>
+    <ProjectGuid>{A8A67F90-FF7B-4147-A92C-893B6B799E54}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Earth_In_Beats.WebService.IoC</RootNamespace>
-    <AssemblyName>Earth_In_Beats.WebService.IoC</AssemblyName>
+    <RootNamespace>Earth_In_Beats.WebService.Business.Implementation</RootNamespace>
+    <AssemblyName>Earth_In_Beats.WebService.Business.Implementation</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,24 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -60,23 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IResolver.cs" />
+    <Compile Include="Mapper\Mapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resolver.cs" />
+    <Compile Include="Services\DeviceService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Earth_In_Beats.WebService.Business.Fake\Earth_In_Beats.WebService.Business.Fake.Implementation.csproj">
-      <Project>{a0d82902-4384-45d6-9e58-762a56a00eb2}</Project>
-      <Name>Earth_In_Beats.WebService.Business.Fake.Implementation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Earth_In_Beats.WebService.Contracts\Earth_In_Beats.WebService.Business.Contracts.csproj">
       <Project>{5cfcc4da-5288-41cb-8bb1-8ac0c712104f}</Project>
       <Name>Earth_In_Beats.WebService.Business.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Earth_In_Beats.WebService.DAL.Contracts\Earth_In_Beats.WebService.DAL.Contracts.csproj">
+      <Project>{7d0ab87c-fda2-4d7a-9bf3-77b6b2619793}</Project>
+      <Name>Earth_In_Beats.WebService.DAL.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

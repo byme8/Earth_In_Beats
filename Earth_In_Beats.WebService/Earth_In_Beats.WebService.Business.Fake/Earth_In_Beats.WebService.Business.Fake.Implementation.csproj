@@ -46,13 +46,9 @@
     <Compile Include="Services\TrackService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Earth_In_Beats.WebService.Contracts\Earth_In_Beats.WebService.Contracts.csproj">
+    <ProjectReference Include="..\Earth_In_Beats.WebService.Contracts\Earth_In_Beats.WebService.Business.Contracts.csproj">
       <Project>{5cfcc4da-5288-41cb-8bb1-8ac0c712104f}</Project>
-      <Name>Earth_In_Beats.WebService.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Result\Result.csproj">
-      <Project>{d6ce1f9a-c267-4681-9236-ad799a1e2db5}</Project>
-      <Name>Result</Name>
+      <Name>Earth_In_Beats.WebService.Business.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

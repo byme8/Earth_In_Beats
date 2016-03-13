@@ -1,9 +1,9 @@
-﻿using Earth_In_Beats.WebService.Contracts.Services;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using Earth_In_Beats.WebService.IoC;
 using Earth_In_Beats.WebService.WCF.Models;
-using Earth_In_Beats.WebService.Contracts.Models;
+using Earth_In_Beats.WebService.Business.Contracts.Models;
+using Earth_In_Beats.WebService.Business.Contracts.Services;
 using static Earth_In_Beats.WebService.WCF.Mapper.Mapper;
 
 namespace Earth_In_Beats.WebService.WCF
@@ -27,14 +27,11 @@ namespace Earth_In_Beats.WebService.WCF
         }
 
         [OperationContract]
-        public DeviceContextData Connect()
+        public DeviceContextData Connect(string deviceKey)
         {
-            var data = deviceService.Connect();
+            var device = deviceService.Connect(deviceKey);
 
-            if (!data.Success)
-                return null;
-
-            return Map<DeviceContextData, DeviceContext>(data.Value);
+            return Map<DeviceContextData, DeviceContext>(device);
         }
 
         [OperationContract]
@@ -42,15 +39,15 @@ namespace Earth_In_Beats.WebService.WCF
         {
             var data = deviceService.Disconnect(Map<DeviceContext, DeviceContextData>(device));
 
-            return data.Value;
+            return data;
         }
 
         [OperationContract]
         public IEnumerable<DeviceData> Get()
         {
-            var data = deviceService.Get();
+            var data = deviceService.GetAll();
 
-            return Map<IEnumerable<DeviceData>, IEnumerable<Device>>(data.Value);
+            return Map<IEnumerable<DeviceData>, IEnumerable<Device>>(data);
         }
 
         [OperationContract]
@@ -58,10 +55,8 @@ namespace Earth_In_Beats.WebService.WCF
         {
             var data = deviceService.Update(Map<DeviceContext, DeviceContextData>(device));
 
-            if (!data.Success)
-                return null;
 
-            return Map<DeviceContextData, DeviceContext>(data.Value);
+            return Map<DeviceContextData, DeviceContext>(data);
         }
 
         [OperationContract]

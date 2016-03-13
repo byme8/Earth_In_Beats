@@ -1,17 +1,16 @@
-﻿using Earth_In_Beats.WebService.Contracts.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Earth_In_Beats.WebService.Contracts.Models;
-using System.Result;
 using System.Linq;
 using Earth_In_Beats.WebService.Business.Fake.DAL;
+using Earth_In_Beats.WebService.Business.Contracts.Services;
+using Earth_In_Beats.WebService.Business.Contracts.Models;
 
 namespace Earth_In_Beats.WebService.Business.Fake.Services
 {
     public class DeviceService : IDeviceService
     {
 
-        public Result<DeviceContext> Connect()
+        public  DeviceContext Connect(string deviceKey)
         {
             var device = new DeviceContext
             {
@@ -25,23 +24,23 @@ namespace Earth_In_Beats.WebService.Business.Fake.Services
             return device;
         }
 
-        public Result<bool> Disconnect(DeviceContext device)
+        public  bool Disconnect(DeviceContext device)
         {
             return Context.Devices.RemoveAll(o => o.Id == device.Id) > 0;
         }
 
-        public Result<IEnumerable<Device>> Get()
+        public  IEnumerable<Device> GetAll()
         {
-            return new Result<IEnumerable<Device>>(Context.Devices.Select(o => new Device
+            return Context.Devices.Select(o => new Device
             {
                 PublicKey = o.Id,
                 Latitude = o.Latitude,
                 Longitude = o.Longitude,
                 CurrentTrack = Context.Tracks.LastOrDefault()
-            }));
+            });
         }
 
-        public Result<DeviceContext> Update(DeviceContext device)
+        public  DeviceContext Update(DeviceContext device)
         {
             var data = Context.Devices.FirstOrDefault(o => o.Id == device.Id);
 

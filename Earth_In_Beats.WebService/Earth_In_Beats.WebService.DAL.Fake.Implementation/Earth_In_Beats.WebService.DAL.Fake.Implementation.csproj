@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5CFCC4DA-5288-41CB-8BB1-8AC0C712104F}</ProjectGuid>
+    <ProjectGuid>{0FFFD450-E501-4546-9518-15F11CC3DFB1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Earth_In_Beats.WebService.Contracts</RootNamespace>
-    <AssemblyName>Earth_In_Beats.WebService.Contracts</AssemblyName>
+    <RootNamespace>Earth_In_Beats.WebService.DAL.Fake.Implementation</RootNamespace>
+    <AssemblyName>Earth_In_Beats.WebService.DAL.Fake.Implementation</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,19 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Device.cs" />
-    <Compile Include="Models\DeviceContext.cs" />
-    <Compile Include="Models\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IDeviceService.cs" />
-    <Compile Include="Services\ITrackService.cs" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\Result\Result.csproj">
-      <Project>{d6ce1f9a-c267-4681-9236-ad799a1e2db5}</Project>
-      <Name>Result</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

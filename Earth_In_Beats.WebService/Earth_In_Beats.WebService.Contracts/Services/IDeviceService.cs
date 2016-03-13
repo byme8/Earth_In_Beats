@@ -1,14 +1,13 @@
-﻿using Earth_In_Beats.WebService.Contracts.Models;
+﻿using Earth_In_Beats.WebService.Business.Contracts.Models;
 using System.Collections.Generic;
-using System.Result;
 
-namespace Earth_In_Beats.WebService.Contracts.Services
+namespace Earth_In_Beats.WebService.Business.Contracts.Services
 {
     public interface IDeviceService
     {
-        Result<DeviceContext> Connect();
-        Result<DeviceContext> Update(DeviceContext device);
-        Result<bool> Disconnect(DeviceContext device);
-        Result<IEnumerable<Device>> Get();
+        DeviceContext Connect(string deviceKey);
+        DeviceContext Update(DeviceContext device);
+        bool Disconnect(DeviceContext device);
+        IEnumerable<Device> GetAll();
     }
 }

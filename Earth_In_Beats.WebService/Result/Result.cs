@@ -7,7 +7,7 @@ namespace System.Result
     /// </summary>
     /// <owner>Stanislav Silin</owner>
     /// <typeparam name="T">Type of holds value.</typeparam>
-    public class Result<T>
+    public class  T>
     {
         /// <summary>
         /// Create success result with value.
@@ -67,9 +67,9 @@ namespace System.Result
         /// <owner>Stanislav Silin</owner>
         /// <param name="message">The error message.</param>
         /// <returns>The unsuccess result.</returns>
-        public static Result<T> Error(string message = "Error")
+        public static  T> Error(string message = "Error")
         {
-            return new Result<T>(message);
+            return new  T>(message);
         }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace System.Result
         /// </summary>
         /// <owner>Stanislav Silin</owner>
         /// <param name="value">The value for <see cref="Result{T}"/></param>
-        public static implicit operator Result<T>(T value)
+        public static implicit operator  T>(T value)
         {
-            return new Result<T>(value);
+            return new  T>(value);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace System.Result
         /// </summary>
         /// <owner>Stanislav Silin</owner>
         /// <param name="result">The result.</param>
-        public static implicit operator T(Result<T> result)
+        public static implicit operator T( T> result)
         {
             return result.Value;
         }

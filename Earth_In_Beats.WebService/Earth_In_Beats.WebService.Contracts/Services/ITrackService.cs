@@ -1,11 +1,10 @@
-﻿using Earth_In_Beats.WebService.Contracts.Models;
-using System.Result;
+﻿using Earth_In_Beats.WebService.Business.Contracts.Models;
 
-namespace Earth_In_Beats.WebService.Contracts.Services
+namespace Earth_In_Beats.WebService.Business.Contracts.Services
 {
     public interface ITrackService
     {
-        Result<bool> Play(DeviceContext device, Track track);
-        Result<bool> Stop(DeviceContext device);
+        bool Play(DeviceContext device, Track track);
+        bool Stop(DeviceContext device);
     }
 }

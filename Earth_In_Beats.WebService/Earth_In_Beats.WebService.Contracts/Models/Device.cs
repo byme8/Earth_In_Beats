@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Earth_In_Beats.WebService.Contracts.Models
+namespace Earth_In_Beats.WebService.Business.Contracts.Models
 {
     public class Device
     {

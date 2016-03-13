@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Earth_In_Beats.WebService.Contracts.Models;
-using Earth_In_Beats.WebService.WCF.Models;
+﻿using Earth_In_Beats.WebService.WCF.Models;
+using Earth_In_Beats.WebService.Business.Contracts.Models;
 
 namespace Earth_In_Beats.WebService.WCF.Mapper
 {
