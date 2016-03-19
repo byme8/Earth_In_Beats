@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Earth_In_Beats.WebService.DAL.Contracts">
+      <HintPath>..\Earth_In_Beats.WebService.DAL.Contracts\bin\Debug\Earth_In_Beats.WebService.DAL.Contracts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
@@ -73,9 +76,17 @@
       <Project>{a0d82902-4384-45d6-9e58-762a56a00eb2}</Project>
       <Name>Earth_In_Beats.WebService.Business.Fake.Implementation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Earth_In_Beats.WebService.Business.Implementation\Earth_In_Beats.WebService.Business.Implementation.csproj">
+      <Project>{a8a67f90-ff7b-4147-a92c-893b6b799e54}</Project>
+      <Name>Earth_In_Beats.WebService.Business.Implementation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Earth_In_Beats.WebService.Contracts\Earth_In_Beats.WebService.Business.Contracts.csproj">
       <Project>{5cfcc4da-5288-41cb-8bb1-8ac0c712104f}</Project>
       <Name>Earth_In_Beats.WebService.Business.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Earth_In_Beats.WebService.DAL.Fake.Implementation\Earth_In_Beats.WebService.DAL.Fake.Implementation.csproj">
+      <Project>{0fffd450-e501-4546-9518-15f11cc3dfb1}</Project>
+      <Name>Earth_In_Beats.WebService.DAL.Fake.Implementation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

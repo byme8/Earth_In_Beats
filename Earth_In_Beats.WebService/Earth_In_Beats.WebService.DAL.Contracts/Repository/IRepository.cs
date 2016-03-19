@@ -15,10 +15,10 @@ namespace Earth_In_Beats.WebService.DAL.Contracts.Repository
 
         bool Remove(Guid id);
 
-        bool[] RemoveRange(TEntity[] entities);
-
-        bool[] RemoveRange(Guid[] ids);
+        int RemoveRange(TEntity[] entities);
 
         TEntity[] GetAll();
+
+	    void Save();
     }
 }

@@ -18,7 +18,7 @@ namespace Earth_In_Beats.WebService.DAL.Contracts.Models
 
 		public DeviceStatus Status { get; set; }
 
-        public virtual ICollection<TrackEntity> Tracks  { get; set; }
+        public ICollection<TrackEntity> Tracks  { get; set; }
     }
 
 	public enum DeviceStatus

@@ -10,7 +10,7 @@ namespace Earth_In_Beats.WebService.Business.Fake.Services
     public class DeviceService : IDeviceService
     {
 
-        public  DeviceContext Connect(string deviceKey)
+        public DeviceContext Connect(string deviceKey)
         {
             var device = new DeviceContext
             {
@@ -24,12 +24,12 @@ namespace Earth_In_Beats.WebService.Business.Fake.Services
             return device;
         }
 
-        public  bool Disconnect(DeviceContext device)
+        public bool Disconnect(Guid id)
         {
-            return Context.Devices.RemoveAll(o => o.Id == device.Id) > 0;
+            return Context.Devices.RemoveAll(o => o.Id == id) > 0;
         }
 
-        public  IEnumerable<Device> GetAll()
+        public IEnumerable<Device> GetAll(Guid id)
         {
             return Context.Devices.Select(o => new Device
             {

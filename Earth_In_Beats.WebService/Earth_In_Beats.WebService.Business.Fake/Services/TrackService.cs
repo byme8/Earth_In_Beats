@@ -2,14 +2,15 @@
 using Earth_In_Beats.WebService.Business.Fake.DAL;
 using Earth_In_Beats.WebService.Business.Contracts.Services;
 using Earth_In_Beats.WebService.Business.Contracts.Models;
+using System;
 
 namespace Earth_In_Beats.WebService.Business.Fake.Services
 {
     public class TrackService : ITrackService
     {
-        public bool Play(DeviceContext device, Track track)
+        public bool Play(Guid id, Track track)
         {
-            if (Context.Devices.Any(o => o.Id != device.Id))
+            if (Context.Devices.Any(o => o.Id != id))
                 return false;
 
             Context.Tracks.Add(track);
@@ -17,7 +18,7 @@ namespace Earth_In_Beats.WebService.Business.Fake.Services
             return true;
         }
 
-        public bool Stop(DeviceContext device)
+        public bool Stop(Guid id)
         {
             return true;
         }

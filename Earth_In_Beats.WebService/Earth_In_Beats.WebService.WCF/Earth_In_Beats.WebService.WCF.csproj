@@ -69,6 +69,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Connect.cs" />
+    <Compile Include="Contracts\Disconnect.cs" />
+    <Compile Include="Contracts\GetAll.cs" />
+    <Compile Include="Contracts\Play.cs" />
+    <Compile Include="Contracts\Result.cs" />
+    <Compile Include="Contracts\Stop.cs" />
+    <Compile Include="Contracts\Update.cs" />
     <Compile Include="Mapper\Mapper.cs" />
     <Compile Include="PlayerService.svc.cs">
       <DependentUpon>PlayerService.svc</DependentUpon>

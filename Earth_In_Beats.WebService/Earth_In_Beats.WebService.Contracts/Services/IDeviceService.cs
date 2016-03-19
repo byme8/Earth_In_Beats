@@ -1,5 +1,6 @@
 ﻿using Earth_In_Beats.WebService.Business.Contracts.Models;
 using System.Collections.Generic;
+using System;
 
 namespace Earth_In_Beats.WebService.Business.Contracts.Services
 {
@@ -7,7 +8,7 @@ namespace Earth_In_Beats.WebService.Business.Contracts.Services
     {
         DeviceContext Connect(string deviceKey);
         DeviceContext Update(DeviceContext device);
-        bool Disconnect(DeviceContext device);
-        IEnumerable<Device> GetAll();
+        bool Disconnect(Guid id);
+        IEnumerable<Device> GetAll(Guid id);
     }
 }

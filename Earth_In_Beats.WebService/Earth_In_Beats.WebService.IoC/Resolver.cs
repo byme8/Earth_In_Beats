@@ -1,7 +1,9 @@
-﻿using Earth_In_Beats.WebService.Business.Contracts.Services;
-using Earth_In_Beats.WebService.Business.Fake.Services;
+﻿using System;
+using Earth_In_Beats.WebService.Business.Contracts.Services;
+using Earth_In_Beats.WebService.Business.Implementation.Services;
+using Earth_In_Beats.WebService.DAL.Contracts.Repository;
+using Earth_In_Beats.WebService.DAL.Fake.Implementation.Repositories;
 using Microsoft.Practices.Unity;
-using System;
 
 namespace Earth_In_Beats.WebService.IoC
 {
@@ -36,7 +38,10 @@ namespace Earth_In_Beats.WebService.IoC
 
         private void Bind()
         {
-            container.RegisterType<IDeviceService, DeviceService>(new HierarchicalLifetimeManager());
+            container.RegisterType(typeof(IRepository<>), typeof(Repository<>), new HierarchicalLifetimeManager());
+            container.RegisterType<IDeviceRepository, DeviceRepository>(new HierarchicalLifetimeManager());
+
+	        container.RegisterType<IDeviceService, DeviceService>(new HierarchicalLifetimeManager());
             container.RegisterType<ITrackService, TrackService>(new HierarchicalLifetimeManager());
         }
 

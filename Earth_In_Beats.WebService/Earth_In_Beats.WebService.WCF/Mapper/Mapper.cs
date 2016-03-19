@@ -7,17 +7,16 @@ namespace Earth_In_Beats.WebService.WCF.Mapper
     {
         static Mapper()
         {
-            AutoMapper.Mapper.Initialize((configuration) =>
-            {
-                configuration.CreateMap<TrackData, Track>();
-                configuration.CreateMap<Track, TrackData>();
+            var configuration = AutoMapper.Mapper.Configuration;
 
-                configuration.CreateMap<DeviceData, Device>();
-                configuration.CreateMap<Device, DeviceData>();
+            configuration.CreateMap<TrackData, Track>();
+            configuration.CreateMap<Track, TrackData>();
 
-                configuration.CreateMap<DeviceContextData, DeviceContext>();
-                configuration.CreateMap<DeviceContext, DeviceContextData>();
-            });
+            configuration.CreateMap<DeviceData, Device>();
+            configuration.CreateMap<Device, DeviceData>();
+
+            configuration.CreateMap<DeviceContextData, DeviceContext>();
+            configuration.CreateMap<DeviceContext, DeviceContextData>();
         }
 
 

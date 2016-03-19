@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using System.ServiceModel;
-using Earth_In_Beats.WebService.IoC;
-using Earth_In_Beats.WebService.WCF.Models;
 using Earth_In_Beats.WebService.Business.Contracts.Models;
 using Earth_In_Beats.WebService.Business.Contracts.Services;
+using Earth_In_Beats.WebService.IoC;
+using Earth_In_Beats.WebService.WCF.Contracts;
+using Earth_In_Beats.WebService.WCF.Models;
 using static Earth_In_Beats.WebService.WCF.Mapper.Mapper;
 
 namespace Earth_In_Beats.WebService.WCF
@@ -27,48 +28,84 @@ namespace Earth_In_Beats.WebService.WCF
         }
 
         [OperationContract]
-        public DeviceContextData Connect(string deviceKey)
+        public ConnectResponce Connect(ConnectRequest request)
         {
-            var device = deviceService.Connect(deviceKey);
+            var device = deviceService.Connect(request.DeviceKey);
 
-            return Map<DeviceContextData, DeviceContext>(device);
+            return new ConnectResponce
+            {
+                Success = true,
+                Id = device.Id
+            };
         }
 
         [OperationContract]
-        public bool Disconnect(DeviceContextData device)
+        public DisconnectResponce Disconnect(DisconnectRequest request)
         {
-            var data = deviceService.Disconnect(Map<DeviceContext, DeviceContextData>(device));
+            var data = deviceService.Disconnect(request.Id);
 
-            return data;
+            return new DisconnectResponce
+            {
+                Success = true
+            };
         }
 
         [OperationContract]
-        public IEnumerable<DeviceData> Get()
+        public GetAllResponce Get(GetAllRequest request)
         {
-            var data = deviceService.GetAll();
+            var data = deviceService.GetAll(request.Id).ToArray();
 
-            return Map<IEnumerable<DeviceData>, IEnumerable<Device>>(data);
+            return new GetAllResponce
+            {
+                Devices = Map<DeviceData[], Device[]>(data)
+            };
         }
 
         [OperationContract]
-        public DeviceContextData Update(DeviceContextData device)
+        public UpdateResponce Update(UpdateRequst request)
         {
-            var data = deviceService.Update(Map<DeviceContext, DeviceContextData>(device));
+            var device = new DeviceContext
+            {
+                Id = request.Id,
+                Latitude = request.Latitude,
+                Longitude = request.Longitude
+            };
+
+            var data = deviceService.Update(device);
 
 
-            return Map<DeviceContextData, DeviceContext>(data);
+            return new UpdateResponce
+            {
+                Success = true,
+                Device = Map<DeviceContextData, DeviceContext>(data)
+            };
         }
 
         [OperationContract]
-        public bool Play(DeviceContextData device, TrackData track)
+        public PlayResponce Play(PlayRequest request)
         {
-            return this.trackService.Play(Map<DeviceContext, DeviceContextData>(device), Map<Track, TrackData>(track));
+            var result = this.trackService.Play(request.Id,
+                new Track
+                {
+                    Artist = request.Artist,
+                    Title = request.Title
+                });
+
+            return new PlayResponce
+            {
+                Success = result
+            };
         }
 
         [OperationContract]
-        public bool Stop(DeviceContextData device)
-        {
-            return this.trackService.Stop(Map<DeviceContext, DeviceContextData>(device));
+        public StopResponce Stop(StopRequest request)
+        { 
+            var result = this.trackService.Stop(request.Id);
+
+            return new StopResponce 
+            {
+                Success = result
+            };
         }
     }
 }

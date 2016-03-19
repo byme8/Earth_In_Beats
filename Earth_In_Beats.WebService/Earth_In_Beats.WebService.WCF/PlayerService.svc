@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="Earth_In_Beats.WebService.WCF.PlayerService" CodeBehind="PlayerService.svc.cs" %
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Earth_In_Beats.WebService.WCF.PlayerService" CodeBehind="PlayerService.svc.cs" %>

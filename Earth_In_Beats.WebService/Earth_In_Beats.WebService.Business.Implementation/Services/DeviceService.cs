@@ -19,24 +19,24 @@ namespace Earth_In_Beats.WebService.Business.Implementation.Services
 
         public DeviceContext Connect(string deviceKey)
         {
-            var device = this.deviceRepository.GetByDeviceKey(deviceKey);
+            var device = this.deviceRepository.GetByDeviceKey(deviceKey) ??
+                         this.deviceRepository.Add(new DeviceContextEntity
+            {
+	            DeviceKey = deviceKey,
+	            Latitude = double.NaN,
+	            Longitude = double.NaN,
+	            PublicKey = Guid.NewGuid(),
+	            Status = DeviceStatus.Online
+            });
 
-			if (device == null)
-				device = this.deviceRepository.Add(new DeviceContextEntity
-				{
-					DeviceKey = deviceKey,
-					Latitude = double.NaN,
-					Longitude = double.NaN,
-					PublicKey = Guid.NewGuid(),
-					Status = DeviceStatus.Online
-				});
+            deviceRepository.Save();
 
-			return  Map<DeviceContext, DeviceContextEntity>(device); 
+	        return  Map<DeviceContext, DeviceContextEntity>(device);
         }
 
-        public bool Disconnect(DeviceContext device)
+        public bool Disconnect(Guid id)
         {
-			var entity = this.deviceRepository.Get(device.Id);
+			var entity = this.deviceRepository.Get(id);
 
 			if (entity == null)
 				return false;
@@ -48,8 +48,12 @@ namespace Earth_In_Beats.WebService.Business.Implementation.Services
 			return true;
         }
 
-        public IEnumerable<Device> GetAll()
+        public IEnumerable<Device> GetAll(Guid id)
         {
+            var device = deviceRepository.Get(id);
+            if (device == null)
+                throw new InvalidOperationException($"Device with id {id} doesn't exist.");
+
 			return Map<IEnumerable<Device>, IEnumerable<DeviceContextEntity>>(this.deviceRepository.GetAll());
         }
 
