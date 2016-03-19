@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:65118/PlayerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:65118/PlayerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Models" />
+  <xs:complexType name="ConnectRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeviceKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConnectRequest" nillable="true" type="tns:ConnectRequest" />
+  <xs:complexType name="ConnectResponce">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConnectResponce" nillable="true" type="tns:ConnectResponce" />
+  <xs:complexType name="Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Result" nillable="true" type="tns:Result" />
+  <xs:complexType name="DisconnectRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DisconnectRequest" nillable="true" type="tns:DisconnectRequest" />
+  <xs:complexType name="DisconnectResponce">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DisconnectResponce" nillable="true" type="tns:DisconnectResponce" />
+  <xs:complexType name="GetAllRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAllRequest" nillable="true" type="tns:GetAllRequest" />
+  <xs:complexType name="GetAllResponce">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Models" minOccurs="0" name="Devices" nillable="true" type="q1:ArrayOfDeviceData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllResponce" nillable="true" type="tns:GetAllResponce" />
+  <xs:complexType name="UpdateRequst">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateRequst" nillable="true" type="tns:UpdateRequst" />
+  <xs:complexType name="UpdateResponce">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Models" minOccurs="0" name="Device" nillable="true" type="q2:DeviceContextData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateResponce" nillable="true" type="tns:UpdateResponce" />
+  <xs:complexType name="PlayRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Artist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlayRequest" nillable="true" type="tns:PlayRequest" />
+  <xs:complexType name="PlayResponce">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PlayResponce" nillable="true" type="tns:PlayResponce" />
+  <xs:complexType name="StopRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StopRequest" nillable="true" type="tns:StopRequest" />
+  <xs:complexType name="StopResponce">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StopResponce" nillable="true" type="tns:StopResponce" />
+</xs:schema>
