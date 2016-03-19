@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="DeviceContextData" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Earth_In_Beats.WebService.TestApp.PlayerService.DeviceContextData, Service References.PlayerService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="DisconnectResponce" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>Earth_In_Beats.WebService.IntegrationTests.Earth_in_Beats.WebService.DisconnectResponce</TypeInfo>
 </GenericObjectDataSource>

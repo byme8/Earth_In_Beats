@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:65118/PlayerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" />
+  <xs:element name="Connect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="request" nillable="true" type="q1:ConnectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConnectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="ConnectResult" nillable="true" type="q2:ConnectResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Disconnect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="request" nillable="true" type="q3:DisconnectRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisconnectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="DisconnectResult" nillable="true" type="q4:DisconnectResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="request" nillable="true" type="q5:GetAllRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="GetResult" nillable="true" type="q6:GetAllResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="request" nillable="true" type="q7:UpdateRequst" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="UpdateResult" nillable="true" type="q8:UpdateResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Play">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="request" nillable="true" type="q9:PlayRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PlayResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="PlayResult" nillable="true" type="q10:PlayResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stop">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="request" nillable="true" type="q11:StopRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Earth_In_Beats.WebService.WCF.Contracts" minOccurs="0" name="StopResult" nillable="true" type="q12:StopResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
