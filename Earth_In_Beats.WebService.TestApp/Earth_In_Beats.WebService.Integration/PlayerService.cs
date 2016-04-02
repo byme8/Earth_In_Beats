@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Earth_In_Beats.WebService.IntegrationTests.Earth_in_Beats.WebService;
-using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
+using Earth_In_Beats.WebService.Integration.PlayerService;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Earth_In_Beats.WebService.IntegrationTests
 {

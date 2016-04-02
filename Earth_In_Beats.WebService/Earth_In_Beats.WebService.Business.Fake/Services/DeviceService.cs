@@ -33,7 +33,6 @@ namespace Earth_In_Beats.WebService.Business.Fake.Services
         {
             return Context.Devices.Select(o => new Device
             {
-                PublicKey = o.Id,
                 Latitude = o.Latitude,
                 Longitude = o.Longitude,
                 CurrentTrack = Context.Tracks.LastOrDefault()

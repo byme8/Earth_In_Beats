@@ -10,15 +10,11 @@ namespace Earth_In_Beats.WebService.DAL.Contracts.Models
     {
         public string DeviceKey { get; set; }
 
-        public Guid PublicKey { get; set; }
-
         public double Latitude { get; set; }
 
         public double Longitude { get; set; }
 
 		public DeviceStatus Status { get; set; }
-
-        public ICollection<TrackEntity> Tracks  { get; set; }
     }
 
 	public enum DeviceStatus

@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Earth_In_Beats.WebService.DAL.Contracts">
-      <HintPath>..\Earth_In_Beats.WebService.DAL.Contracts\bin\Debug\Earth_In_Beats.WebService.DAL.Contracts.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,7 +44,12 @@
     <Compile Include="Repositories\DeviceRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Earth_In_Beats.WebService.DAL.Contracts\Earth_In_Beats.WebService.DAL.Contracts.csproj">
+      <Project>{7d0ab87c-fda2-4d7a-9bf3-77b6b2619793}</Project>
+      <Name>Earth_In_Beats.WebService.DAL.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

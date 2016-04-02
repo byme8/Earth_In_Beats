@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Earth_In_Beats.WebService.Business.Contracts.Models;
 using Earth_In_Beats.WebService.Business.Contracts.Services;
+using Earth_In_Beats.WebService.Business.Implementation.Validation;
 using Earth_In_Beats.WebService.DAL.Contracts.Models;
 using Earth_In_Beats.WebService.DAL.Contracts.Repository;
 using static Earth_In_Beats.WebService.Business.Implementation.Mapper.Mapper;
@@ -22,12 +23,12 @@ namespace Earth_In_Beats.WebService.Business.Implementation.Services
             var device = this.deviceRepository.GetByDeviceKey(deviceKey) ??
                          this.deviceRepository.Add(new DeviceContextEntity
             {
-	            DeviceKey = deviceKey,
-	            Latitude = double.NaN,
-	            Longitude = double.NaN,
-	            PublicKey = Guid.NewGuid(),
-	            Status = DeviceStatus.Online
+	            DeviceKey = deviceKey
             });
+
+            device.Latitude = double.NaN;
+            device.Longitude = double.NaN;
+            device.Status = DeviceStatus.Online;
 
             deviceRepository.Save();
 
